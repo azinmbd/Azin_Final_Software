@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@Controller // Add this annotation to indicate that this is a controller component
-@RequestMapping("/sales")
+@Controller
+@RequestMapping("/")
 public class SalesController {
+
 
     private final SalesRepository salesRepository;
 
@@ -24,22 +25,18 @@ public class SalesController {
         this.salesRepository = salesRepository;
     }
 
-    @GetMapping("/list")
-    public String listSales(Model model) {
-        List<Sales> salesList = salesRepository.findAll();
-        model.addAttribute("salesList", salesList);
-        return "sales/list"; // Assuming you have a Thymeleaf template named "list.html" in a "sales" folder
+    @GetMapping("/add")
+    public String showForm(Model model) {
+        model.addAttribute("sales", new Sales());
+        return "sales-form";
     }
 
     @PostMapping("/add")
     public String addSales(@ModelAttribute("sales") Sales sales) {
         if (sales.getQty() == 0) {
-            // Show an alert if the quantity is 0 and stay on the same page
-            return "redirect:/?error=quantity";
+            return "redirect:/sales/add?error=quantity";
         }
         salesRepository.save(sales);
-        return "redirect:/sales/list";
+        return "redirect:/sales/add";
     }
-
-
 }

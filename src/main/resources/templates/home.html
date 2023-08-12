@@ -14,9 +14,15 @@
             integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
             crossorigin="anonymous"></script>
 
-    <script th:if="${param.error == 'quantity'}">
-        alert('Quantity cannot be 0.');
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var errorParam = /*[[${param.error}]]*/ null;
+        if (errorParam === 'quantity') {
+            alert('Quantity cannot be 0.');
+        }
+        /*]]>*/
     </script>
+</head>
 </head>
 <body>
 <div class="container">
@@ -76,7 +82,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">Save</button>
-    </Form>
+    </form>
 
 
 </div>
