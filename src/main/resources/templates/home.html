@@ -13,6 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
             integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
             crossorigin="anonymous"></script>
+
+    <script th:if="${param.error == 'quantity'}">
+        alert('qty cannot be 0.');
+    </script>
 </head>
 <body>
 <div class="container">
@@ -35,10 +39,10 @@
     </div>
 </div>
 <div class="container bg-info p-5 text-center">
-    <Form>
+    <form th:action="@{/sales/add}" method="post" th:object="${sales}">
         <div class="w-50 m-auto d-flex align-items-center">
             <div style="width: 100px">Receipt No:</div>
-            <input style="width: 300px" type="text" class="form-control" placeholder="Username" aria-label="Username"
+            <input style="width: 300px" type="text" class="form-control" placeholder="Receipt No" aria-label="Username"
                    aria-describedby="basic-addon1">
             <span>Item Type:</span>
         </div>
@@ -55,7 +59,7 @@
         <div class="d-flex  justify-content-center">
             <div class="w-50 m-auto d-flex align-items-center">
                 <div style="width: 100px">Quantity:</div>
-                <input style="width: 300px"  type="text" class="form-control" placeholder="Username" aria-label="Username"
+                <input style="width: 300px"  type="text" class="form-control" placeholder="Quantity" aria-label="Username"
                        aria-describedby="basic-addon1">
             </div>
 
@@ -71,7 +75,7 @@
 
         </div>
 
-        <button type="button" class="btn btn-primary mt-3">Save</button>
+        <button type="submit" class="btn btn-primary mt-3">Save</button>
     </Form>
 
 
