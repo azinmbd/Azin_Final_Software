@@ -8,6 +8,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "your-template-name"; // Replace with the name of your HTML template without the ".html" extension
+        return "home";
     }
 }
