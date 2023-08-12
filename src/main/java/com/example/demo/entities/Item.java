@@ -1,8 +1,6 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
-
-
 @Entity
 @Table(name = "items")
 public class Item {
@@ -12,16 +10,16 @@ public class Item {
     private Long id;
 
     @Column(name = "Catcode")
-    private String Catcode;
+    private String catcode;
 
     @Column(name = "Icode")
-    private String Icode;
+    private String icode;
 
     @Column(name = "Idesc")
-    private String Idesc;
+    private String idesc;
 
     @Column(name = "Price")
-    private float Price;
+    private float price;
 
     public Long getId() {
         return id;
@@ -32,34 +30,34 @@ public class Item {
     }
 
     public String getCatcode() {
-        return Catcode;
+        return catcode;
     }
 
     public void setCatcode(String catcode) {
-        Catcode = catcode;
+        this.catcode = catcode;
     }
 
     public String getIcode() {
-        return Icode;
+        return icode;
     }
 
     public void setIcode(String icode) {
-        Icode = icode;
+        this.icode = icode;
     }
 
     public String getIdesc() {
-        return Idesc;
+        return idesc;
     }
 
     public void setIdesc(String idesc) {
-        Idesc = idesc;
+        this.idesc = idesc;
     }
 
     public float getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(float price) {
-        Price = price;
+        this.price = price;
     }
 }
