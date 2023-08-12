@@ -34,8 +34,8 @@ public class SalesController {
     @PostMapping("/add")
     public String addSales(@ModelAttribute("sales") Sales sales) {
         if (sales.getQty() == 0) {
-            // Show an alert if the quantity is 0
-            return "redirect:/sales/add?error=quantity";
+            // Show an alert if the quantity is 0 and stay on the same page
+            return "redirect:/?error=quantity";
         }
         salesRepository.save(sales);
         return "redirect:/sales/list";

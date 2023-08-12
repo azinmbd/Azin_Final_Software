@@ -15,7 +15,7 @@
             crossorigin="anonymous"></script>
 
     <script th:if="${param.error == 'quantity'}">
-        alert('qty cannot be 0.');
+        alert('Quantity cannot be 0.');
     </script>
 </head>
 <body>
@@ -39,7 +39,7 @@
     </div>
 </div>
 <div class="container bg-info p-5 text-center">
-    <form th:action="@{/sales/add}" method="post" th:object="${sales}">
+    <form th:action="@{/}" method="post" th:object="${sales}">
         <div class="w-50 m-auto d-flex align-items-center">
             <div style="width: 100px">Receipt No:</div>
             <input style="width: 300px" type="text" class="form-control" placeholder="Receipt No" aria-label="Username"
