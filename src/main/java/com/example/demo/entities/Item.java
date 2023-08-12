@@ -8,11 +8,19 @@ import jakarta.persistence.*;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Primary key
+    @Column(name = "id")
+    private Long id;
 
+    @Column(name = "Catcode")
     private String Catcode;
+
+    @Column(name = "Icode")
     private String Icode;
+
+    @Column(name = "Idesc")
     private String Idesc;
+
+    @Column(name = "Price")
     private float Price;
 
     public Long getId() {

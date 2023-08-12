@@ -45,10 +45,9 @@
     <div class="input-group mb-3">
         <select class="form-select" id="inputGroupSelect02">
             <option selected>Select Options</option>
-            <th:block th:each="item : ${items}">
-                <option th:value="${item.icode}" th:text="${item.icode + ': ' + item.idesc}"></option>
-            </th:block>
+            <option th:each="item : ${items}" th:value="${item.icode}" th:text="${item.icode + ': ' + item.idesc}"></option>
         </select>
+
 
     </div>
     <div class="d-flex  justify-content-center">

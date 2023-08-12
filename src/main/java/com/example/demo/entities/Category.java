@@ -1,20 +1,19 @@
 package com.example.demo.entities;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "Catcode")
     private String Catcode;
-    private String Catdesc;
 
+    @Column(name = "Catdesc")
+    private String Catdesc;
     public Long getId() {
         return id;
     }
