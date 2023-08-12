@@ -1,18 +1,45 @@
 package com.example.demo.entities;
 
-public class Sales {
-    private int renco;
-    private String icode;
-    private double qty;
-    private String date;
-    private int id;
+import jakarta.persistence.*;
 
-    public int getRenco() {
-        return renco;
+import java.util.Date;
+
+@Entity
+@Table(name = "sales")
+public class Sales {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "recno")
+    private Integer recno;
+
+    @Column(name = "icode")
+    private String icode;
+
+    @Column(name = "qty")
+    private Double qty;
+
+    @Column(name = "dot")
+    @Temporal(TemporalType.DATE)
+    private Date dot;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setRenco(int renco) {
-        this.renco = renco;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getRecno() {
+        return recno;
+    }
+
+    public void setRecno(Integer recno) {
+        this.recno = recno;
     }
 
     public String getIcode() {
@@ -23,27 +50,19 @@ public class Sales {
         this.icode = icode;
     }
 
-    public double getQty() {
+    public Double getQty() {
         return qty;
     }
 
-    public void setQty(double qty) {
+    public void setQty(Double qty) {
         this.qty = qty;
     }
 
-    public String getDate() {
-        return date;
+    public Date getDot() {
+        return dot;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setDot(Date dot) {
+        this.dot = dot;
     }
 }

@@ -4,14 +4,11 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "items")
 public class Item {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
 
     @Column(name = "Catcode")
     private String catcode;
 
+    @Id
     @Column(name = "Icode")
     private String icode;
 
@@ -21,13 +18,6 @@ public class Item {
     @Column(name = "Price")
     private float price;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCatcode() {
         return catcode;
